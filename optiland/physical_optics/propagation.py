@@ -72,7 +72,10 @@ def angular_spectrum(
             zero, so zero-distance propagation is an identity only for fields
             without evanescent content. ``"decay"`` attenuates them
             exponentially with ``abs(distance)`` and preserves the complete
-            field at zero, up to FFT roundoff. With evanescent content, this
+            field at zero, up to FFT roundoff. Negative distance reverses the
+            phase of propagating components, but still attenuates evanescent
+            components: it is not the inverse of positive-distance propagation
+            when evanescent content is present. With evanescent content, this
             absolute-value decay has no two-sided distance derivative at zero;
             PyTorch uses a zero subgradient for the absolute-value factor there.
 

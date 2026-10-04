@@ -128,7 +128,8 @@ class ScalarField(Generic[BEArrayT]):
             distance: Signed propagation distance in the field's spatial unit.
             evanescent: ``"discard"`` filters evanescent content even at zero
                 distance. ``"decay"`` preserves the complete field at zero,
-                up to FFT roundoff. See
+                up to FFT roundoff, and attenuates evanescent content for either
+                distance sign; negative distance is not its inverse. See
                 :func:`~optiland.physical_optics.propagation.angular_spectrum`
                 for distance-gradient behavior.
 
